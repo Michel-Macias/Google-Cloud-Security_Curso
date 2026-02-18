@@ -1,0 +1,11 @@
+# Secrets
+.env_secrets
+.session_secrets.md
+
+# OS files
+.DS_Store
+Thumb.db
+
+# Temp files
+*.tmp
+*.log
