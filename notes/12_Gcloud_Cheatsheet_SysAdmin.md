@@ -44,9 +44,12 @@ Entender la topología de red es vital para la seguridad.
 
 *   **Listar Redes y Subredes:**
     *   `gcloud compute networks list`
-    *   `gcloud compute networks subnets list`
-*   **Ver Rutas:** ¿Hacia dónde va el tráfico?
+    *   `gcloud compute networks subnets list --network=<NETWORK_NAME>` -> Filtra para ver solo lo que importa.
+*   **Crear Subred Personalizada (Seguridad):**
+    *   `gcloud compute networks subnets create <NAME> --network=<VPC> --region=<REGION> --range=10.0.0.0/24`
+*   **Ver Rutas y DNS:**
     *   `gcloud compute routes list`
+    *   `gcloud compute dns managed-zones list`
 
 ---
 

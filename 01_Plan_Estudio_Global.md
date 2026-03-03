@@ -6,24 +6,27 @@ Este plan está diseñado para transformar tus habilidades de SysAdmin Linux en 
 Convertirse en un **Cloud Security Analyst** capaz de diseñar, asegurar, monitorizar y auditar infraestructuras en Google Cloud Platform, manteniendo un fuerte enfoque en la administración de sistemas Linux subyacente.
 
 ## 📂 Recursos Disponibles
-*   **Documentación Google Cloud:** Guías de VPC, Infraestructura de confianza, Whitepapers y Hojas de Ruta del Certificado.
-*   **Transcripciones de Vídeo:** Módulo 1 (Conceptos base, CapEx/OpEx, Redundancia).
-*   **Caso de Estudio:** Cymbal Bank/Retail.
-*   **Agent Skills:** `cloud-penetration-testing`, `server-management`, `gcp-cloud-run`.
+*   **Documentación Organizada:** Ubicada en `/docs/` con nombres descriptivos (Fundamentos, Redes, Casos de Uso).
+*   **Guías de Laboratorio:** Centralizadas en `/labs/`.
+*   **Mentor Agent:** Asistencia técnica continua enfocada en SysAdmin -> Cloud Security.
+*   **Agent Skills:** `file-organizer` (organización), `cisco-lab-formatter` (estética de docs).
 
 ---
 
 ## 📅 Hoja de Ruta (Progreso Actual: Fase 1 en curso)
 
-### Fase 1: Fundamentos de Infraestructura Segura (The "Trusted Base") - [EN PROCESO]
+### Fase 1: Fundamentos de Infraestructura Segura (The "Trusted Base") - [TEORÍA COMPLETADA]
 **Enfoque:** Entender dónde "viven" tus servidores Linux en la nube y cómo Google protege la capa física y lógica.
 
-*   **Teoría (Completada):**
-    *   Análisis de `Infraestructura de confianza`.
-    *   Procesado de vídeos de Módulo 1 (Responsabilidad Compartida).
-    *   Manual Maestro Creado: `Manual_Maestro_Analista_GCP.md`.
+*   **Teoría (Finalizada):**
+    *   Análisis de Infraestructura Global y Chip Titan.
+    *   Modelos de Servicio (IaaS, PaaS, SaaS) y Responsabilidad Compartida.
+    *   Gestión de **Almacenamiento Seguro** (Standard, Coldline, etc.).
+    *   Seguridad en entornos **Serverless** (BaaS/FaaS).
+    *   Resumen consolidado en `notes/Modulo_1_Resumen_Consolidacion.md`.
 *   **Práctica (Siguiente paso):**
-    *   Configuración de VPCs seguras (Lab de IAP preparado).
+    *   Configuración de VPCs personalizadas (Uso de Cloud Shell y `gcloud`).
+
 
 
 ### Fase 2: Gestión de Servidores y Cargas de Trabajo (SysAdmin -> Cloud Admin)

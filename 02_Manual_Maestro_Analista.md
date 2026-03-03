@@ -61,10 +61,20 @@ Un Analista no solo tira comandos, también justifica gastos.
 
 ---
 
+## 📂 Mapa de Recursos (Docs & Labs)
+
+Tus materiales están ahora en `/docs/` con nombres descriptivos:
+1. **Fundamentos**: `/docs/modulo_1_fundamentos/` (Certificado, Cifrado, Titan).
+2. **Redes**: `/docs/modulo_4_redes/` (VPC, gcloud commands).
+3. **Casos de Uso**: `/docs/casos_uso/` (Escenario Cymbal Bank).
+4. **Laboratorios**: `/labs/` (Guías paso a paso como IAP).
+
+---
+
 ## 🚀 Hoja de Ruta Inmediata (Fase de Consolidación)
 
-1.  **Termina tu alta en GCP.**
-2.  **Laboratorio Red Segura:** Usa el archivo `Lab_Red_Segura_IAP.md` que te preparé. En él aplicarás el **Acceso Privado a Google** y el **Firewall por Etiquetas**.
-3.  **Glosario de Términos:** He visto en el PDF de "Sugerencias" que los glosarios son vitales. Úsalos cada vez que hagamos un lab.
+1.  **Revisar el Resumen**: Lee `notes/Modulo_1_Resumen_Consolidacion.md` para refrescar los conceptos clave de este módulo.
+2.  **Laboratorio Red Segura**: Usa el archivo `labs/Lab_Red_Segura_IAP.md`. En él aplicarás el **Acceso Privado a Google** y el **Firewall por Etiquetas**.
+3.  **Glosario de Términos**: El glosario centralizado está en `docs/modulo_1_fundamentos/00_Glosario_Terminos.pdf`. Úsalo cada vez que hagamos un lab.
 
-**¿Qué te parece este manual resumido?** Lo tienes guardado en la raíz de tu carpeta como una guía rápida para no tener que volver a los PDFs en inglés cada vez que tengas una duda.
+**¿Qué te parece la nueva organización?** He limpiado el ruido de los nombres genéricos de Google para que te sientas como en un entorno de trabajo real de un Analista.
