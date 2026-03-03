@@ -50,11 +50,13 @@ Convertirse en un **Cloud Security Analyst** capaz de diseñar, asegurar, monito
     *   Implementación de "Least Privilege".
 
 ### Fase 4: Operaciones de Seguridad y Respuesta a Incidentes (The Analyst Role)
-**Enfoque:** Detectar y responder a amenazas.
+**Enfoque:** Detectar y responder a amenazas en un contexto organizacional real.
 
-*   **Caso de Estudio (Cymbal):**
-    *   Analizar `Explora la situación del curso 1: Cymbal.pdf`.
-    *   Identificar vectores de ataque en la infraestructura de Cymbal.
+*   **Escenario Cymbal Bank (Tu Rol: Junior Security Analyst):**
+    *   **Contexto:** Banco minorista en transformación digital hacia la nube híbrida.
+    *   **Equipo:** Javier (CISO), Chloe (Lead), Hank (Architect), Hannah (Incident Response).
+    *   **Misión:** Asegurar la adopción de la nube, automatizar con IaC y configurar redes seguras.
+    *   Analizar `docs/casos_uso/18_Caso_Uso_Cymbal_Bank.pdf`.
 *   **Herramientas:**
     *   Security Command Center (SCC).
     *   Cloud Logging para análisis forense.

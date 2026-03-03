@@ -1,10 +1,24 @@
-# Secrets
+# Secrets & Credentials
 .env_secrets
 .session_secrets.md
+*.json
+!README.md
+!*.pdf
+
+# Google Cloud SDK
+.gsutil/
+.gcloud/
+crash.log
+
+# IDEs & Editor
+.vscode/
+.idea/
+.terraform/
+.env
 
 # OS files
 .DS_Store
-Thumb.db
+Thumbs.db
 
 # Temp files
 *.tmp

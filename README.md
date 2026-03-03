@@ -8,11 +8,11 @@ Este repositorio contiene mi progreso, laboratorios y documentación consolidada
 
 El contenido está organizado de forma numérica para seguir el itinerario lógico de estudio:
 
-1.  **`01_Plan_Estudio_Global.md`**: Control de fases y objetivos.
-2.  **`02_Manual_Maestro_Analista.md`**: Guía rápida de conceptos clave.
+1.  **`01_Plan_Estudio_Global.md`**: Control de fases y objetivos (En contexto de **Cymbal Bank**).
+2.  **`02_Manual_Maestro_Analista.md`**: Guía rápida de conceptos clave y equipo de trabajo.
 3.  **`/docs/`**: Material oficial analizado y renombrado.
-4.  **`/notes/`**: Resúmenes premium y cheatsheets de supervivencia.
-5.  **`/labs/`**: Laboratorios prácticos ejecutados en sandbox.
+4.  **`/notes/`**: Resúmenes premium, Tríada CIA y cheatsheets de supervivencia.
+5.  **`/labs/`**: Laboratorios prácticos ejecutados en sandbox (Foco en Zero Trust).
 
 ---
 

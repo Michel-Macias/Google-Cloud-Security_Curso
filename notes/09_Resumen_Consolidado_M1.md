@@ -21,6 +21,14 @@ Google diseña sus propias placas base. El **Chip Titan** es la "raíz de confia
 Para un SysAdmin, la **Región** es tu ubicación (Madrid) y la **Zona** es tu rack o centro de datos redundante.
 - **Acción**: Siempre despliega en múltiples zonas para evitar puntos únicos de fallo.
 
+### 🛡️ 3: Las 5 Capas de Seguridad Progresiva
+Google protege la infraestructura mediante capas que se refuerzan entre sí:
+1.  **Infraestructura de Bajo Nivel:** Seguridad física de centros de datos, biometría y detectores de metales. Identidad única para cada servidor.
+2.  **Implementación de Servicios:** Modelo **Zero Trust**. Todo usuario/dispositivo debe autenticarse y autorizarse antes de acceder a la red.
+3.  **Almacenamiento de Datos:** Encriptación forzosa en reposo. Programación de eliminación segura de datos.
+4.  **Comunicaciones en Internet:** Aislamiento mediante espacio de direcciones IP privado y proxies de seguridad.
+5.  **Seguridad Operativa:** Uso de bibliotecas de código verificado, revisiones manuales y monitoreo constante de amenazas.
+
 ---
 
 ## ☁️ Parte 2: El Cambio de Paradigma (Cloud vs Local)
@@ -32,6 +40,19 @@ Para un SysAdmin, la **Región** es tu ubicación (Madrid) y la **Zona** es tu r
 ### 🔍 Limitaciones Críticas
 - **Pérdida de Control Físico**: Debes confiar en los controles del CSP (Cloud Service Provider).
 - **Compliance**: Algunos datos sensibles requieren regiones específicas debido a leyes locales.
+
+---
+
+## 🛡️ Parte 2.5: La Tríada de la Seguridad (C.I.A.)
+Extraído del Módulo 2 para reforzar la base del Analista.
+
+| Propiedad | Definición (Enfoque Cloud) | Ejemplo de Control |
+| :--- | :--- | :--- |
+| **Secrecía (Confidencialidad)** | Solo el personal autorizado accede a los datos sensibles. | Cifrado AES-256 + Políticas IAM. |
+| **Integridad** | Los datos y sistemas no son modificados sin autorización. | Firmas digitales, Sumas de verificación (Hashes). |
+| **Disponibilidad** | Los sistemas están accesibles cuando se necesitan. | Balanceadores de Carga, Auto-scaling, Multi-zona. |
+
+---
 
 ---
 

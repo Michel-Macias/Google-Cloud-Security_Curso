@@ -21,7 +21,7 @@
 - **CLI first**: Priorizar el uso de `gcloud` sobre la consola web para automatización y auditoría.
 
 ## 📈 Historial de Progreso (Episodic Memory)
-- **2026-03-03**: Reorganización total del material. Limpieza de nombres genéricos (CCS-...) a descriptivos. Creación de resúmenes consolidados para M1 y M4. Actualización de Cheatsheet de supervivencia.
+- **2026-03-03**: Reorganización total del material. Limpieza de nombres genéricos (CCS-...) a descriptivos. Creación de resúmenes consolidados para M1 y M4. Integración del escenario **Cymbal Bank**. Formateo premium del Lab 17 (IAP). Integración de la Tríada CIA (Módulo 2).
 
 ---
 *Esta memoria sirve para mantener la consistencia del mentor a lo largo de las sesiones.*

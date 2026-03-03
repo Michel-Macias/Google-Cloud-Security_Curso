@@ -1,29 +1,44 @@
-# Lab Práctico: Despliegue de Red Segura y Bastion Host (SysAdmin Mode)
+# 🧪 Lab: Despliegue de Red Segura y Bastion Host (IAP)
 
-En este laboratorio vamos a aplicar los conceptos de los **Módulos 1 y 4** para crear una infraestructura que cumpla con los estándares de un Analista de Seguridad.
+> **Perfil:** Analista de Seguridad / SysAdmin Cloud
+> **Módulos:** 1 (Infraestructura de Confianza) y 4 (Networking)
+> **Nivel:** Intermedio
 
-## 🎯 Escenario del Laboratorio
-Vamos a crear una red "Custom" (Personalizada) desde cero, con una subred aislada, y configuraremos un servidor Linux que **no tenga IP pública** (invisible para ataques de internet). Aprenderemos a acceder a él de forma segura.
+En este laboratorio aplicaremos los principios de **Zero Trust** y **Microsegmentación** para crear una infraestructura invisible desde el internet público.
+
+---
+
+## 🎯 Objetivos
+1.  Diseñar una **VPC Custom** (No-Auto) para control total del direccionamiento.
+2.  Implementar **Private Google Access** para comunicación segura con APIs.
+3.  Configurar un **Firewall defensivo** basado en etiquetas y rangos de confianza.
+4.  Desplegar una instancia Linux **sin IP Pública** (Hardened).
+5.  Validar el acceso mediante **IAP (Identity-Aware Proxy)**.
+
+---
+
+## 🗺️ Escenario
+La empresa **Cymbal Bank** requiere un entorno de gestión para sus bases de datos. El servidor no debe tener exposición directa a internet para prevenir ataques de fuerza bruta al puerto 22. Utilizaremos el túnel de Google como único vector de entrada autorizado.
 
 ---
 
 ## 🛠️ Requisitos Previos
-1.  Haber ejecutado `gcloud auth login` en tu terminal.
-2.  Tener un ID de Proyecto de GCP a mano (puedes verlo con `gcloud projects list`).
+*   Acceso a proyecto GCP con permisos de `Compute Admin`.
+*   Google Cloud SDK (`gcloud`) configurado localmente.
+*   ID del proyecto: `gcloud config get-value project`.
 
 ---
 
-## 🚀 Fase 1: Creación del "Cableado" (VPC y Subred)
+## 🚀 Fase 1: El Cableado Virtual (VPC)
 
-Como Analista, siempre huimos del modo "Auto". Queremos control total.
+Como arquitecto de seguridad, evitamos las redes "Default". Queremos segmentación granular.
 
 ```bash
 # 1. Crear la red VPC en modo personalizado
 gcloud compute networks create red-segura-lab --subnet-mode=custom
 
-# 2. Crear una subred en Madrid (o la región que prefieras)
-# Usaremos el rango 10.10.1.0/24. 
-# Activamos '--enable-private-ip-google-access' (Módulo 4 puro!)
+# 2. Crear subred en Madrid con Private Google Access habilitado
+# Note: El acceso privado permite que VMs sin IP pública consuman servicios como Cloud Storage.
 gcloud compute networks subnets create subred-segura-madrid \
     --network=red-segura-lab \
     --range=10.10.1.0/24 \
@@ -33,28 +48,28 @@ gcloud compute networks subnets create subred-segura-madrid \
 
 ---
 
-## 🛡️ Fase 2: El Firewall (Iptables en la Nube)
+## 🛡️ Fase 2: El Firewall (Perímetro Zero Trust)
 
-Vamos a permitir SSH pero **solo de una forma especial**: a través del proxy de Google (IAP), para no tener que abrir el puerto a todo internet.
+No abrimos el puerto 22 a `0.0.0.0/0`. Solo permitimos el tráfico que viene desde los proxies internos de Google.
 
 ```bash
-# Crear regla de entrada para IAP (Identity-Aware Proxy)
-# IP de Google IAP: 35.235.240.0/20 (Es el rango oficial de Google para este servicio)
+# Crear regla de entrada para IAP
+# Rango oficial de Google IAP: 35.235.240.0/20
 gcloud compute firewall-rules create permitir-ssh-iap \
     --network=red-segura-lab \
     --allow=tcp:22 \
     --source-ranges=35.235.240.0/20 \
-    --target-tags=permite-ssh
+    --target-tags=permite-ssh \
+    --description="Acceso exclusivo via IAP"
 ```
 
 ---
 
-## 💻 Fase 3: Despliegue del Servidor (Identidad y Confianza)
+## 💻 Fase 3: Despliegue del Servidor Blindado
 
-Ahora desplegamos nuestra VM Linux (Debian/Ubuntu). Fíjate que no le ponemos IP externa (`--no-address`).
+Creamos un servidor sin dirección IP externa. El aislamiento es nuestra primera capa de defensa.
 
 ```bash
-# Crear la instancia de seguridad
 gcloud compute instances create servidor-secreto \
     --zone=europe-southwest1-a \
     --network-interface=subnet=subred-segura-madrid,no-address \
@@ -66,33 +81,42 @@ gcloud compute instances create servidor-secreto \
 
 ---
 
-## 🕵️ Fase 4: Acceso y Verificación (El Rol del Analista)
+## 🕵️ Fase 4: Acceso y Auditoría
 
-Como no tiene IP pública, un `nmap` desde tu casa no verá nada. Usaremos el túnel de Google.
+Para entrar al servidor, usaremos una identidad autenticada, no solo una llave SSH.
 
 ```bash
-# Acceder vía túnel IAP
+# Acceder mediante el túnel IAP
 gcloud compute ssh servidor-secreto --tunnel-through-iap --zone=europe-southwest1-a
 ```
 
-### Una vez dentro de la VM, haz estos checks de SysAdmin:
-*   `ip addr` -> Verás que solo tienes la IP `10.10.1.x`.
-*   `ping google.com` -> **¡Fallará!** (No tienes salida a internet).
-*   *Prueba Maestra:* Intenta usar una API de Google (ej: `gsutil ls`). Funcionará gracias al **Private Google Access** que activamos en la Fase 1, aunque no tengas internet.
+### Checks de Verificación (Dentro de la VM):
+1.  **Aislamiento de Red:** `ip addr` (Verás que no hay interfaz con IP pública).
+2.  **Tráfico de Salida:** `ping 8.8.8.8` (Debe fallar, garantizando que el servidor no puede ser usado para exfiltración directa).
+3.  **API Access:** `gsutil ls` (Debe funcionar gracias al Private Google Access).
 
 ---
 
-## 📊 Tarea de Auditoría (Para tu .md de notas)
-Después de hacer el lab, ejecuta este comando y guarda la salida. Es lo que presentaría un Analista en un informe:
+## 💡 Reflexión del Mentor (Tips de SysAdmin)
 
+> [!TIP]
+> **¿Por qué esto es mejor que una VPN?**
+> Con IAP no necesitas mantener un túnel VPN complejo. Google verifica la identidad del usuario (IAM) antes de siquiera permitir que el paquete llegue al puerto 22 de tu VM. Es la base de la arquitectura **BeyondCorp**.
+
+> [!WARNING]
+> Recuerda que el **Private Google Access** solo funciona para servicios de Google (S3, BigQuery, etc.). Si tu servidor Linux necesita actualizar paquetes vía `apt-get`, necesitarás configurar un **Cloud NAT**.
+
+---
+
+## 📊 Tarea de Cierre: Evidencia
+Genera el informe de seguridad de la regla de firewall creada:
 ```bash
 gcloud compute firewall-rules describe permitir-ssh-iap --format="yaml(name,allowed,sourceRanges,targetTags)"
 ```
 
 ---
 
-## 🧹 Limpieza (Para no gastar saldo)
-Cuando termines, borra todo el laboratorio con un comando:
+## 🧹 Limpieza de Recursos
 ```bash
 gcloud compute networks delete red-segura-lab --quiet
 ```
