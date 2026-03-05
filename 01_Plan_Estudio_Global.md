@@ -23,7 +23,7 @@ Convertirse en un **Cloud Security Analyst** capaz de diseñar, asegurar, monito
     *   Modelos de Servicio (IaaS, PaaS, SaaS) y Responsabilidad Compartida.
     *   Gestión de **Almacenamiento Seguro** (Standard, Coldline, etc.).
     *   Seguridad en entornos **Serverless** (BaaS/FaaS).
-    *   Resumen consolidado en `notes/Modulo_1_Resumen_Consolidacion.md`.
+    *   Resumen consolidado en `notes/10_Resumen_Consolidado_M1.md`.
 *   **Práctica (Siguiente paso):**
     *   Configuración de VPCs personalizadas (Uso de Cloud Shell y `gcloud`).
 

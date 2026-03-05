@@ -33,6 +33,13 @@ Este es el concepto más importante para un Analista. Define **quién tiene la c
 
 > **Principio Clave:** Google protege "La Nube" (hardware, cables). Tú proteges "Lo que hay en la Nube" (tus sistemas operativos, tus usuarios).
 
+### 🤝 Destino Compartido (Shared Fate)
+Es la evolución de Google. No solo te dan la nube, te dan **herramientas inteligentes**, **blueprints seguros** y **seguros de riesgo** para asegurar que no falles. Es una asociación proactiva de seguridad.
+*   Documento detallado: `notes/24_Responsabilidad_y_Destino_Compartido.md`.
+
+> [!CAUTION]
+> **El Peligro de la "Configuración Incorrecta":** Según los datos del curso, los parámetros de configuración erróneos son la **causa principal** de las violaciones de seguridad en la nube. Como Analista, tu prioridad es supervisar el aprovisionamiento y usar la automatización para evitar errores humanos.
+
 ---
 
 ## 🌐 Parte 3: Redes VPC (Tu Nuevo Data Center Virtual)
@@ -75,7 +82,7 @@ Google recomienda el marco del NIST para organizar tu estrategia:
 ### 3. Defensa en Profundidad (Capas de Cebolla)
 No confiamos en una sola "muralla". Si el atacante rompe el firewall, se encuentra con IAM. Si rompe IAM, se encuentra con datos cifrados. 
 *   **Capas:** Física > Red > Identidad > Cómputo > Datos.
-*   Documento detallado: `notes/23_Defensa_en_Profundidad_Cloud.md`.
+*   Documento detallado: `notes/22_Defensa_en_Profundidad_Cloud.md`.
 
 ---
 
@@ -91,15 +98,20 @@ Tus materiales están en `/docs/` y `/notes/` con nombres descriptivos:
 3. **Casos de Uso**: `/docs/casos_uso/` (Escenario Cymbal Bank).
 4. **Laboratorios**: `/labs/` (Guías paso a paso como IAP).
 5. **Estrategia y Marcos**:
-    * `notes/22_Resumen_NIST_CSF_GCP.md` (Marco NIST).
-    * `notes/23_Defensa_en_Profundidad_Cloud.md` (Capas de seguridad).
-    * `notes/21_Resumen_Ciberseguridad_M2.md` (C.I.A. y Modelado).
+    * `notes/21_Marco_NIST_CSF_GCP.md` (Marco NIST).
+    * `notes/22_Defensa_en_Profundidad_Cloud.md` (Defensa en Profundidad).
+    * `notes/26_Auditoria_Logs_GCP_SysAdmin.md` (Guía de Logs).
+    * `notes/24_Responsabilidad_y_Destino_Compartido.md` (Responsabilidad/Destino).
+    * `notes/23_Modelos_Servicio_IaaS_PaaS_SaaS.md` (IaaS, PaaS, SaaS).
+    * `notes/25_Checklist_Migracion_Segura.md` (Estrategia de migración).
+    * `docs/Modulo_2_Seguridad_en_la_nube/27_Examen_Responsabilidad_y_Destino.md` (Knowledge Check).
+    * `notes/20_Resumen_Ciberseguridad_M2.md` (C.I.A. y Modelado).
 
 ---
 
 ## 🚀 Hoja de Ruta Inmediata (Fase de Consolidación)
 
-1.  **Revisar el Resumen**: Lee `notes/Modulo_1_Resumen_Consolidacion.md` para refrescar los conceptos clave de este módulo.
+1.  **Revisar el Resumen**: Lee `notes/10_Resumen_Consolidado_M1.md` para refrescar los conceptos clave de este módulo.
 2.  **Laboratorio Red Segura**: Usa el archivo `labs/Lab_Red_Segura_IAP.md`. En él aplicarás el **Acceso Privado a Google** y el **Firewall por Etiquetas**.
 3.  **Glosario de Términos**: El glosario centralizado está en `docs/modulo_1_fundamentos/00_Glosario_Terminos.pdf`. Úsalo cada vez que hagamos un lab.
 
