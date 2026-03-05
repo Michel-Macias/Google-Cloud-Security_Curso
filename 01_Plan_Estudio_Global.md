@@ -13,7 +13,7 @@ Convertirse en un **Cloud Security Analyst** capaz de diseñar, asegurar, monito
 
 ---
 
-## 📅 Hoja de Ruta (Progreso Actual: Fase 1 en curso)
+## 📅 Hoja de Ruta (Progreso Actual: Módulo 2 en curso)
 
 ### Fase 1: Fundamentos de Infraestructura Segura (The "Trusted Base") - [TEORÍA COMPLETADA]
 **Enfoque:** Entender dónde "viven" tus servidores Linux en la nube y cómo Google protege la capa física y lógica.

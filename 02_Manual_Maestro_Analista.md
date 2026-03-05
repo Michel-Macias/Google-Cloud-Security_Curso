@@ -1,4 +1,4 @@
-# manual Maestro: Analista de Seguridad Cloud (Módulos 1 y 4)
+# manual Maestro: Analista de Seguridad Cloud (Módulos 1, 2 y 4)
 
 Este manual ha sido diseñado específicamente para ti, un **Administrador de Sistemas Linux**, que está cursando el Certificado de Google Cloud Security. Combina la teoría de los documentos técnicos con las lecciones clave de los vídeos del curso, todo en español y adaptado a tu perfil técnico.
 
@@ -52,22 +52,48 @@ En lugar de recordar que el servidor Web es la `192.168.1.10`, usas **Network Ta
 
 ---
 
-## ⚙️ Parte 4: Conceptos de Negocio para el Analista
+---
 
-Un Analista no solo tira comandos, también justifica gastos.
-*   **CapEx (Capital Expenditure):** Gastar 20.000€ en servidores físicos que durarán 5 años. (Modelo Local).
-*   **OpEx (Operational Expenditure):** Pagar solo por lo que usas cada mes (Modelo Cloud). Como Analista, el OpEx te permite escalar la seguridad cuando hay ataques y reducirla cuando no es necesaria.
-*   **DevSecOps:** No es una herramienta, es una cultura. Significa que la **Seguridad** se mete en medio de los Desarrolladores y los de Operaciones (nosotros) desde el primer minuto.
+## 🛡️ Parte 4: Marcos de Trabajo (NIST CSF y Tríada CIA)
+
+Como Analista, tus decisiones deben basarse en estándares. No protegemos "a ojo", protegemos siguiendo un plan.
+
+### 1. La Tríada CIA (Confidencialidad, Integridad, Disponibilidad)
+Es el ABC de la ciberseguridad. Todo control que pongas debe proteger una de estas tres:
+*   **Confidencialidad:** Que nadie vea los datos (Cifrado, IAM).
+*   **Integridad:** Que nadie los cambie (Hashes, Firmas).
+*   **Disponibilidad:** Que el servicio no caiga (Alta Disponibilidad, Backups).
+
+### 2. Marco NIST CSF (Tus 5 mandamientos)
+Google recomienda el marco del NIST para organizar tu estrategia:
+1.  **Identificar:** Conoce tus activos (Cloud Asset Inventory).
+2.  **Proteger:** Pon barreras (Firewalls, IAM).
+3.  **Detectar:** Vigila señales (Security Command Center).
+4.  **Responder:** Actúa ante incidentes (Automatización de respuesta).
+5.  **Recuperar:** Vuelve a la normalidad (Snapshots, Replicación).
+
+### 3. Defensa en Profundidad (Capas de Cebolla)
+No confiamos en una sola "muralla". Si el atacante rompe el firewall, se encuentra con IAM. Si rompe IAM, se encuentra con datos cifrados. 
+*   **Capas:** Física > Red > Identidad > Cómputo > Datos.
+*   Documento detallado: `notes/23_Defensa_en_Profundidad_Cloud.md`.
+
+---
+
+## ⚙️ Parte 5: Conceptos de Negocio para el Analista
 
 ---
 
 ## 📂 Mapa de Recursos (Docs & Labs)
 
-Tus materiales están ahora en `/docs/` con nombres descriptivos:
+Tus materiales están en `/docs/` y `/notes/` con nombres descriptivos:
 1. **Fundamentos**: `/docs/modulo_1_fundamentos/` (Certificado, Cifrado, Titan).
 2. **Redes**: `/docs/modulo_4_redes/` (VPC, gcloud commands).
 3. **Casos de Uso**: `/docs/casos_uso/` (Escenario Cymbal Bank).
 4. **Laboratorios**: `/labs/` (Guías paso a paso como IAP).
+5. **Estrategia y Marcos**:
+    * `notes/22_Resumen_NIST_CSF_GCP.md` (Marco NIST).
+    * `notes/23_Defensa_en_Profundidad_Cloud.md` (Capas de seguridad).
+    * `notes/21_Resumen_Ciberseguridad_M2.md` (C.I.A. y Modelado).
 
 ---
 
